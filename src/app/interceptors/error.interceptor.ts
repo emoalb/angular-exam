@@ -10,12 +10,10 @@ import {Router} from '@angular/router';
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(private toastr: ToastrService, private router: Router) {
 
-
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
    return next.handle(req).pipe( catchError((err: HttpErrorResponse) => {
-
          this.toastr.error(err.error.error, 'Warning');
 
      return throwError(err);

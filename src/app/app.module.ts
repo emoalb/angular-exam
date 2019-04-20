@@ -15,13 +15,15 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthService} from "./authentication/auth.service";
 import {JwtInterceptor} from "./interceptors/jwt.interceptor";
 import {ErrorInterceptor} from "./interceptors/error.interceptor";
+import { PostsComponent } from './posts/posts.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     HomeComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
