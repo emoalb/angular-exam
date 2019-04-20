@@ -2,7 +2,7 @@ import {EventEmitter, Injectable, Output} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {SignInModel} from "./models/signin.model";
 import {SignUpModel} from "./models/signup.model";
-import {Observable, of} from "rxjs";
+
 
 
 
@@ -11,7 +11,7 @@ export class AuthService {
   @Output() usernameHolder: EventEmitter<any> = new EventEmitter<any>();
   private baseUrl: string = 'https://baas.kinvey.com/';
   private appKey: string = 'kid_S1wP8tRfX';
-  private headers ;
+  private readonly headers ;
   private registerUrl: string = this.baseUrl + 'user/' + this.appKey + '/';
   private loginUrl: string = this.baseUrl + 'user/' + this.appKey + '/login';
 
