@@ -11,31 +11,19 @@ export class JwtInterceptor implements HttpInterceptor {
 
   }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser && currentUser.token) {
-      request = request.clone({
-          setHeaders: {
-            'Authorization': `Bearer ${currentUser.token}`
-          }
-        });
-    }
+
       return next.handle(request).pipe(tap((res: any) => {
         if (res instanceof HttpResponse && res.body.token) {
           this.saveToken(res.body);
           this.toastr.success(res.body.message, 'Success!');
-          // this.router/navigate(['furniture/all']);
         }
-        if (res instanceof HttpResponse && res.body.success && res.url.endsWith('signup')) {
-          this.toastr.success(res.body.message, 'Success!');
-          this.router.navigate(['/signin']);
+        if (res instanceof HttpResponse && res.body.username && this.router.url.endsWith('/signup')) {
+          this.toastr.success("Successful registration!", 'Success!');
+          this.router.navigate(['/auth/login']);
                   }
               }));
     }
-    private saveToken(data) {
-    localStorage.setItem('currentUser', JSON.stringify({
-      'username': data.user.name,
-      'token': data.token
-    }));
+    private saveToken(data) {  localStorage.setItem('username',  data.username  );
     }
   }
 

@@ -15,14 +15,10 @@ export class ErrorInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
    return next.handle(req).pipe( catchError((err: HttpErrorResponse) => {
-     switch (err.status) {
-       case  401:
-         this.toastr.error(err.error.message, 'Warning')
-         break;
-       case 400:
-         break;
-     }
-     return throwError(err );
+
+         this.toastr.error(err.error.error, 'Warning');
+
+     return throwError(err);
    }));
  }
 }
