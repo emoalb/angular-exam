@@ -13,7 +13,7 @@ export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
       return next.handle(request).pipe(tap((res: any) => {
-        if (res instanceof HttpResponse && res.body.token) {
+        if (res instanceof HttpResponse && res.body._kmd.authtoken && this.router.url.endsWith('/login')) {
           this.saveToken(res.body);
           this.toastr.success(res.body.message, 'Success!');
         }
@@ -23,7 +23,9 @@ export class JwtInterceptor implements HttpInterceptor {
                   }
               }));
     }
-    private saveToken(data) {  localStorage.setItem('username',  data.username  );
+    private saveToken(data) {
+    localStorage.setItem('username',  data.username  );
+    localStorage.setItem('authToken',data._kmd.authtoken);
     }
   }
 
