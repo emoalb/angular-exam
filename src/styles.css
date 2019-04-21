@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+app-root{
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  height: 100%;
+}
+body{
+  height: 100%;
+}
+#toast-container > .toast-success {
+  width: 30%;
+  height: 10%;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 2px;
+  background-image: none;
+  background-color: darkgreen;
+  color: black;
+}
+#toast-container > .toast-error {
+  width: 20%;
+  height: 10%;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 2px;
+  background-image: none;
+  background-color: darkslategrey;
+  color: darkred;
+}

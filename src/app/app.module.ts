@@ -15,7 +15,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthService} from "./authentication/auth.service";
 import {JwtInterceptor} from "./interceptors/jwt.interceptor";
 import {ErrorInterceptor} from "./interceptors/error.interceptor";
-import { PostsComponent } from './posts/posts.component';
+import { PostsComponent } from './posts/posts/posts.component';
+import { GuestHomeComponent } from './guest-home/guest-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { PostsComponent } from './posts/posts.component';
     HomeComponent,
     SigninComponent,
     SignupComponent,
-    PostsComponent
+    PostsComponent,
+    GuestHomeComponent
   ],
   imports: [
     BrowserModule,

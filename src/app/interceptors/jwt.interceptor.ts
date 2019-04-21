@@ -29,8 +29,8 @@ export class JwtInterceptor implements HttpInterceptor {
   }
 
   private saveToken(data) {
-    this.authService.setUsername(data.username);
-    this.authService.setAuthToken(data._kmd.authtoken);
+    localStorage.setItem('username', data.username);
+    localStorage.setItem('authToken', data._kmd.authtoken);
   }
 }
 
