@@ -16,8 +16,11 @@ export class PostService {
 
   }
   getAllPosts() {
-
-    return this.http.get<PostModel>(this.baseUrl + 'appdata/' + this.appKey + '/posts',
+    return this.http.get<PostModel[]>(this.baseUrl + 'appdata/' + this.appKey + '/posts',
       {headers:this.headers});
+  }
+  getPostById(_id:string){
+    return this.http.get<PostModel>(this.baseUrl + 'appdata/' + this.appKey + '/posts/'+_id,{headers:this.headers});
+
   }
 }

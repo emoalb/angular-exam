@@ -17,8 +17,10 @@ export class JwtInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(tap((res: any) => {
       if (res instanceof HttpResponse && res.body.username  && this.router.url.endsWith('/login')) {
-        this.saveToken(res.body);
-        this.toastr.success(res.body.message, 'Success!');
+   //     this.saveToken(res.body);
+        const welcomeMessage: string = 'Hello '+res.body.username+'!';
+
+        this.toastr.success(welcomeMessage, 'Success!');
         this.router.navigate(['/'])
       }
       if (res instanceof HttpResponse && res.body.username && this.router.url.endsWith('/signup')) {
@@ -26,15 +28,18 @@ export class JwtInterceptor implements HttpInterceptor {
         this.router.navigate(['/auth/login']);
       }
       if (res instanceof HttpResponse  && this.router.url.endsWith('/')) {
-        this.toastr.success("Successful Fetch", 'Success!');
+        this.toastr.success("Successful GET from server!", 'Success!');
       }
     }));
   }
 
-  private saveToken(data) {
+ /*
+    private saveToken(data) {
     localStorage.setItem('username', data.username);
     localStorage.setItem('authToken', data._kmd.authtoken);
   }
+ */
+
 }
 
 

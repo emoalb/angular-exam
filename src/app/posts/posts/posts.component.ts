@@ -13,11 +13,11 @@ export class PostsComponent implements OnInit {
   constructor(private postService: PostService) {
   }
 
-  private posts: PostModel[];
+posts: PostModel[];
 
   async ngOnInit() {
-   this.postService.getAllPosts().subscribe((res:PostModel[]) => {
-this.posts=res
+   this.postService.getAllPosts().subscribe((res: PostModel[]) => {
+         this.posts=res;
      })
 
 

@@ -1,0 +1,13 @@
+
+<div class="container" *ngIf="post">
+  <img class="card-img-top" alt='' src="{{post.imgUrl}}"/>
+  <div class="card-body">
+    <h2 class="card-title">{{post.title}}</h2>
+    <h5 class="card-text" >Description:</h5>
+    <p class="card-text" >{{post.context}}</p>
+    <h5 class="card-text" >Created by:</h5>
+    <p class="card-text" >{{post.username}}</p>
+    <button (click)="goBack()" class="btn btn-outline-info" >Back</button>
+  </div>
+</div>
+

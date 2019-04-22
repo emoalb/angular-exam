@@ -13,7 +13,7 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit() {
-this.authService.getUsername().subscribe(username=>this.username=username);
+  this.authService.getUsername().subscribe(username=>this.username=username);
 
   }
 

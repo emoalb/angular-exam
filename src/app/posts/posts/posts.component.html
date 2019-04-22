@@ -1,14 +1,13 @@
 <div class="row space-top" *ngIf="posts">
-  <div class="col-md-4" *ngFor="let post of posts">
+  <div class="col order-6" *ngFor="let post of posts">
 <div class="card">
   <img class="card-img-top" src="{{post.imgUrl}}" alt =""/>
   <div class="card-body">
     <h5 class="card-title">{{post.title}}</h5>
     <p class="card-title">{{post.context}}</p>
-    <p class="btn btn-primary" >Details</p>
-    <p class="btn btn-outline-success" >Add to favorites</p>
+    <button routerLink="/details/{{post._id}}" class="btn btn-primary" >Details</button>
+    <button class="btn btn-outline-success" >Add to favorites</button>
   </div>
-  <p>{{post._id}}</p>
 </div>
   </div>
 </div>

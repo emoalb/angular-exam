@@ -20,6 +20,6 @@ model: SignInModel;
   signIn() {
     this.authService
       .login(this.model)
-      .subscribe();
+
   }
 }

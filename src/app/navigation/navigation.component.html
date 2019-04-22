@@ -10,6 +10,9 @@
           <a class="nav-link"routerLink="/">Home</a>
         </li>
         <li *ngIf="authService.isAuthenticated()" class="nav-item" >
+          <a class="nav-link" routerLink="/create/new">Create new post</a>
+        </li>
+        <li *ngIf="authService.isAuthenticated()" class="nav-item" >
           <a class="nav-link"(click)="logout()">Logout</a>
         </li>
         <li *ngIf="!authService.isAuthenticated()" class="nav-item">
@@ -18,10 +21,8 @@
         <li *ngIf="!authService.isAuthenticated()" class="nav-item">
           <a class="nav-link" routerLink="/auth/signup">Sign up</a>
         </li>
-
       </ul>
     </div>
-
 </nav>
 
 

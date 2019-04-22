@@ -17,6 +17,7 @@ import {JwtInterceptor} from "./interceptors/jwt.interceptor";
 import {ErrorInterceptor} from "./interceptors/error.interceptor";
 import { PostsComponent } from './posts/posts/posts.component';
 import { GuestHomeComponent } from './guest-home/guest-home.component';
+import { DetailsPostComponent } from './posts/details-post/details-post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { GuestHomeComponent } from './guest-home/guest-home.component';
     SigninComponent,
     SignupComponent,
     PostsComponent,
-    GuestHomeComponent
+    GuestHomeComponent,
+    DetailsPostComponent
   ],
   imports: [
     BrowserModule,

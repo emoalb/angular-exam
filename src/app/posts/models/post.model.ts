@@ -1,9 +1,10 @@
 export class PostModel {
   constructor (
-    private _id:string,
-    private imgUrl: string,
-    private  title: string,
-    private  context: string,
-    private  username: string
+    public _id:string,
+    public imgUrl: string,
+    public  title: string,
+    public  context: string,
+    public  username: string,
+
   ){}
 }
