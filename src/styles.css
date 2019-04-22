@@ -28,3 +28,7 @@ body{
   background-color: darkslategrey;
   color: darkred;
 }
+.fill {
+  min-height: 100%;
+  height: 100%;
+}

@@ -16,7 +16,7 @@ export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     return next.handle(request).pipe(tap((res: any) => {
-      if (res instanceof HttpResponse && res.body._kmd.authtoken && this.router.url.endsWith('/login')) {
+      if (res instanceof HttpResponse && res.body.username  && this.router.url.endsWith('/login')) {
         this.saveToken(res.body);
         this.toastr.success(res.body.message, 'Success!');
         this.router.navigate(['/'])
@@ -24,6 +24,9 @@ export class JwtInterceptor implements HttpInterceptor {
       if (res instanceof HttpResponse && res.body.username && this.router.url.endsWith('/signup')) {
         this.toastr.success("Successful registration!", 'Success!');
         this.router.navigate(['/auth/login']);
+      }
+      if (res instanceof HttpResponse  && this.router.url.endsWith('/')) {
+        this.toastr.success("Successful Fetch", 'Success!');
       }
     }));
   }

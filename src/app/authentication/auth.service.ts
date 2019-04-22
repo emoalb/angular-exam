@@ -23,11 +23,11 @@ export class AuthService {
   }
 
   register(body: SignUpModel) {
-    return this.http.post(this.registerUrl, body, {headers: this.headers});
+    return this.http.post<SignInModel>(this.registerUrl, body, {headers: this.headers});
   }
 
   login(body: SignInModel) {
-    return this.http.post(this.loginUrl, body, {headers: this.headers});
+    return this.http.post<SignInModel>(this.loginUrl, body, {headers: this.headers});
   }
 
   logout() {
