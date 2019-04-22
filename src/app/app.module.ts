@@ -18,6 +18,7 @@ import {ErrorInterceptor} from "./interceptors/error.interceptor";
 import { PostsComponent } from './posts/posts/posts.component';
 import { GuestHomeComponent } from './guest-home/guest-home.component';
 import { DetailsPostComponent } from './posts/details-post/details-post.component';
+import { NewPostComponent } from './posts/new-post/new-post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { DetailsPostComponent } from './posts/details-post/details-post.componen
     SignupComponent,
     PostsComponent,
     GuestHomeComponent,
-    DetailsPostComponent
+    DetailsPostComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,

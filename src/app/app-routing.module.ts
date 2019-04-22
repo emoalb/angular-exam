@@ -7,12 +7,14 @@ import {SignupComponent} from "./authentication/signup/signup.component";
 import {AuthGuard} from "./authentication/guards/auth.guard";
 import {GuestHomeComponent} from "./guest-home/guest-home.component";
 import {DetailsPostComponent} from "./posts/details-post/details-post.component";
+import {NewPostComponent} from "./posts/new-post/new-post.component";
 const routes: Routes = [
   {path: '', component: HomeComponent ,canActivate: [AuthGuard]},
   {path:'auth/login', component: SigninComponent},
   {path:'auth/signup',component:SignupComponent},
   {path:'guest/home',component:GuestHomeComponent},
-  {path:'details/:id',component:DetailsPostComponent,canActivate: [AuthGuard]}
+  {path:'details/:id',component:DetailsPostComponent,canActivate: [AuthGuard]},
+  {path:'create/new',component:NewPostComponent ,canActivate: [AuthGuard]}
 ];
 @NgModule({
   declarations: [],
