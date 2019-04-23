@@ -1,4 +1,4 @@
-<form (ngSubmit)="signUp()" #registerForm="ngForm">
+<form  class="container" (ngSubmit)="signUp()" #registerForm="ngForm">
   <h2>Sign up:</h2>
 
   <div class="form-group">
@@ -32,10 +32,11 @@
            [(ngModel)]="repeatPassword"
            #repPassword="ngModel"
            name="repeat-password"
-           minlength="4" id="repeat-password" placeholder="Repeat Password"/>
+           minlength="4"
+           id="repeat-password" placeholder="Repeat Password"/>
     <div *ngIf="match()" [hidden]="repPassword.pristine" class="alert alert-dark">
       Passwords should match!
     </div>
   </div>
-  <button class="btn btn-primary" [disabled]="registerForm.form.invalid&&password!=repPassword">Sign up</button>
+  <button class="btn btn-primary" [disabled]="registerForm.form.invalid">Sign up</button>
 </form>

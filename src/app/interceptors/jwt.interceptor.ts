@@ -33,7 +33,7 @@ export class JwtInterceptor implements HttpInterceptor {
     let title =  res.body.title;
         this.toastr.success(title+" details!", 'Success!');
       }
-      if (res instanceof HttpResponse  && this.router.url.match('/create/new')) {
+      if (res instanceof HttpResponse && this.router.url.match('/create/new')) {
 
         this.toastr.success("New post created!", 'Success!');
       }
