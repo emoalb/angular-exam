@@ -11,6 +11,7 @@
       <button (click)="deletePost()" type="button" class="btn btn-outline-danger">Delete</button>
       <button (click)="editPost()" type="button" class="btn btn-outline-warning">Edit</button>
     </div>
+    <button routerLink="/comments/{{post._id}}" class="btn btn-outline-success" >Comments</button>
     <button (click)="goBack()" type="button" class="btn btn-outline-info" >Back</button>
   </div>
 </section>

@@ -19,10 +19,12 @@ export class AuthService {
       }
 
   register(body: SignUpModel) {
+    body.username = body.username.toLowerCase();
     return this.http.post(this.registerUrl, body, {headers: Data.headers_basic});
   }
 
   loginObservable(body: SignInModel):Observable<SigninResponseModel> {
+   body.username = body.username.toLowerCase();
     return this.http.post<SigninResponseModel>(this.loginUrl, body, {headers: Data.headers_basic});
   }
 

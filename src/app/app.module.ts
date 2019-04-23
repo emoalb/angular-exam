@@ -1,13 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './authentication/signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ToastrModule } from 'ngx-toastr';
 import { SignupComponent } from './authentication/signup/signup.component';
 import {FormsModule} from "@angular/forms";
@@ -26,6 +24,7 @@ import {PostService} from "./posts/services/post.service";
 import {PostComponent} from './posts/post/post.component';
 import { AllUsersComponent } from './users/all-users/all-users.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { CommentsComponent } from './posts/comments/comments.component';
 
 
 
@@ -44,7 +43,8 @@ library.add(fas);
     NewPostComponent,
     PostComponent,
     AllUsersComponent,
-    EditPostComponent
+    EditPostComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

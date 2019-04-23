@@ -1,15 +1,13 @@
 <div *ngIf="post">
-<div class="card h-25">
-
+<div class="card m-1">
   <img class="card-img-top"  onError="this.src='./assets/errorurl.jpg'"  [src]="post.imgUrl" alt =""/>
 
   <div class="card-body">
     <h5 class="card-title">{{post.title}}</h5>
     <p class="card-title">{{post.context}}</p>
-  </div>
-  <div *ngIf="this.router.url.endsWith('/')">
-  <button routerLink="/details/{{post._id}}" class="btn btn-primary" >Details</button>
-  <button class="btn btn-outline-success" >Add to favorites</button>
+    <div *ngIf="router_.url.endsWith('/')">
+      <button routerLink="/details/{{post._id}}" class="btn btn-outline-success" >Details</button>
+    </div>
   </div>
 </div>
 </div>

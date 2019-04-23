@@ -1,0 +1,29 @@
+<section id="comments-table" *ngIf="comments">
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">User</th>
+    <th scope="col">Comment</th>
+  </tr>
+  </thead>
+<tbody  *ngFor="let com of comments">
+  <tr>
+    <td>{{com.userName}}</td>
+    <td>{{com.comment}}</td>
+  </tr>
+</tbody>
+
+</table>
+</section>
+<section id="comments-form">
+  <form class="form-inline" #commentForm="ngForm">
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="inputcomment" class="sr-only">Add comment to post:</label>
+    <input name="comm" [(ngModel)]="comment.comment" #comm="ngModel" required minlength="4" type="text" class="form-control" id="inputcomment" placeholder="Type comment">
+    <div [hidden]="comm.valid || comm.pristine" class="alert alert-dark">
+     Comment must have at least 4 characters!
+    </div>
+  </div>
+  <button (click)="addComment()" [disabled]="commentForm.form.invalid" class="btn btn-primary mb-2">Add</button>
+  </form>
+</section>

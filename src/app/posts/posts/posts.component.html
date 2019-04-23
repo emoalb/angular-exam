@@ -1,5 +1,5 @@
-<div class="row space-top" *ngIf="posts">
-  <div class="col order-lg-9" *ngFor="let post of posts" [@FadeAnimation]="'in'">
+<div class="row m-md-0 " *ngIf="posts">
+  <div class="col col-lg" *ngFor="let post of posts" [@FadeAnimation]="'in'">
     <app-post [post]="post"></app-post>
   </div>
 </div>
