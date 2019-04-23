@@ -1,13 +1,5 @@
 <div class="row space-top" *ngIf="posts">
-  <div class="col order-6" *ngFor="let post of posts"  [@FadeAnimation]="'in'">
-<div class="card">
-  <img class="card-img-top" src="{{post.imgUrl}}" alt =""/>
-  <div class="card-body">
-    <h5 class="card-title">{{post.title}}</h5>
-    <p class="card-title">{{post.context}}</p>
-    <button routerLink="/details/{{post._id}}" class="btn btn-primary" >Details</button>
-    <button class="btn btn-outline-success" >Add to favorites</button>
-  </div>
-</div>
+  <div class="col order-lg-9" *ngFor="let post of posts" [@FadeAnimation]="'in'">
+    <app-post [post]="post"></app-post>
   </div>
 </div>

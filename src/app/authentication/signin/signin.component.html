@@ -17,7 +17,7 @@
            #password="ngModel" name="password" minlength="4"
            name="password" class="form-control" id="password" placeholder="Password"/>
     <div [hidden]="password.valid || password.pristine" class="alert alert-dark">
-      Password must have at least 4 characters
+      Password must have at least 4 characters!
     </div>
   </div>
   <button class="btn btn-primary" [disabled]="loginForm.form.invalid">Sign in</button>

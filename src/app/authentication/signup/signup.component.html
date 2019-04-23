@@ -2,7 +2,7 @@
   <h2>Sign up:</h2>
 
   <div class="form-group">
-    <label for="username">User name</label>
+    <label for="username">User name:</label>
     <input type="text"
            required
            [(ngModel)]="model.username"
@@ -10,20 +10,32 @@
            name="username" class="form-control" id="username" aria-describedby="usernameHelp"
            placeholder="Enter user name"/>
     <div [hidden]="name.valid || name.pristine" class="alert alert-dark">
-      Please provide your name
+      Please provide your name!
     </div>
   </div>
   <div class="form-group">
-    <label for="password">Password</label>
+    <label for="password">Password:</label>
     <input type="password" class="form-control"
            required
            [(ngModel)]="model.password"
            #password="ngModel"
            name="password"
            minlength="4" id="password" placeholder="Password"/>
-    <div [hidden]="password.valid || password.pristine" class="alert alert-dark">
-      Password must have at least 4 characters
+  </div>
+  <div [hidden]="password.valid || password.pristine" class="alert alert-dark">
+    Password should be at least 4 symbols!
+  </div>
+  <div class="form-group">
+    <label for="repeat-password">Repeat  password:</label>
+    <input type="password" class="form-control"
+           required
+           [(ngModel)]="repeatPassword"
+           #repPassword="ngModel"
+           name="repeat-password"
+           minlength="4" id="repeat-password" placeholder="Repeat Password"/>
+    <div *ngIf="match()" [hidden]="repPassword.pristine" class="alert alert-dark">
+      Passwords should match!
     </div>
   </div>
-  <button class="btn btn-primary" [disabled]="registerForm.form.invalid">Sign up</button>
+  <button class="btn btn-primary" [disabled]="registerForm.form.invalid&&password!=repPassword">Sign up</button>
 </form>

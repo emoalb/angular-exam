@@ -1,3 +1,34 @@
-<p>
-  new-post works!
-</p>
+<div style="display: flex;flex-direction: row;justify-content: space-around"  >
+
+  <div style="width: 30%">
+    <form>
+      <h2>Create new post:</h2>
+      <div class="form-group">
+        <label for="imageUrl">Image url:</label>
+        <input type="text"  [(ngModel)]="post.imgUrl" name="imgUrl" class="form-control" id="imageUrl"
+               aria-describedby="imgurlHelp"
+               placeholder="Enter image url"/>
+      </div>
+      <div class="form-group">
+        <label for="title">Title of post:</label>
+        <input [(ngModel)]="post.title" name="title" type="text" class="form-control" id="title"
+               aria-describedby="titleHelp"
+               placeholder="Enter title"/>
+      </div>
+      <div class="form-group">
+        <label for="context">Description:</label>
+        <input name="context" [(ngModel)]="post.context" type="text" class="form-control" id="context"
+               aria-describedby="descriptionHelp"
+               placeholder="Enter description"/>
+      </div>
+      <button type="submit" class="btn btn-outline-info">Submit</button>
+    </form>
+
+  </div>
+  <div style="width:20%">
+    <h5>Your post will look like this:</h5>
+
+    <app-post [post]="post"></app-post>
+  </div>
+
+</div>

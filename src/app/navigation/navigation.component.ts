@@ -7,15 +7,15 @@ import {AuthService} from "../authentication/auth.service";
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  username: string;
-
   constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
-  this.authService.getUsername().subscribe(username=>this.username=username);
 
   }
+getUsername(): string{
+    return localStorage.getItem('username');
+}
 
   logout(): void {
     this.authService

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
+import {PostModel} from "../models/post.model";
 
 @Component({
   selector: 'app-new-post',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-
-  constructor() { }
+ post: PostModel;
+  constructor() {
+    this.post = new PostModel("","","","",localStorage.getItem('username'))
+  }
 
   ngOnInit() {
   }

@@ -19,6 +19,16 @@ import { PostsComponent } from './posts/posts/posts.component';
 import { GuestHomeComponent } from './guest-home/guest-home.component';
 import { DetailsPostComponent } from './posts/details-post/details-post.component';
 import { NewPostComponent } from './posts/new-post/new-post.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {faGlobe, fas} from "@fortawesome/free-solid-svg-icons";
+import {PostService} from "./posts/services/post.service";
+import { PostComponent } from './posts/post/post.component';
+
+
+
+library.add(faGlobe);
+library.add(fas);
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,18 +39,22 @@ import { NewPostComponent } from './posts/new-post/new-post.component';
     PostsComponent,
     GuestHomeComponent,
     DetailsPostComponent,
-    NewPostComponent
+    NewPostComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    FontAwesomeModule,
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot()
+
   ],
   providers: [
     AuthService,
+    PostService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

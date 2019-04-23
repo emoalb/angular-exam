@@ -19,7 +19,6 @@ export class JwtInterceptor implements HttpInterceptor {
       if (res instanceof HttpResponse && res.body.username  && this.router.url.endsWith('/login')) {
    //     this.saveToken(res.body);
         const welcomeMessage: string = 'Hello '+res.body.username+'!';
-
         this.toastr.success(welcomeMessage, 'Success!');
         this.router.navigate(['/'])
       }
@@ -29,6 +28,14 @@ export class JwtInterceptor implements HttpInterceptor {
       }
       if (res instanceof HttpResponse  && this.router.url.endsWith('/')) {
         this.toastr.success("Successful GET from server!", 'Success!');
+      }
+      if (res instanceof HttpResponse  && this.router.url.match('/details/.')) {
+    let title =  res.body.title;
+        this.toastr.success(title+" details!", 'Success!');
+      }
+      if (res instanceof HttpResponse  && this.router.url.match('/create/new')) {
+
+        this.toastr.success("New post created!", 'Success!');
       }
     }));
   }

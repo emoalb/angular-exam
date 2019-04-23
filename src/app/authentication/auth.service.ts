@@ -7,6 +7,7 @@ import {Observable, of} from "rxjs";
 import {SigninResponseModel} from "./models/signin-response.model";
 
 
+
 @Injectable()
 export class AuthService {
 
@@ -16,7 +17,7 @@ export class AuthService {
   private registerUrl: string = this.baseUrl + 'user/' + this.appKey + '/';
   private loginUrl: string = this.baseUrl + 'user/' + this.appKey + '/login';
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router  ) {
     this.headers = {
       'Content-Type': 'application/json',
       'Authorization': "Basic " + btoa('kid_S1wP8tRfX:7166d55c549a41f390b49f1066ca40da')
@@ -36,11 +37,6 @@ export class AuthService {
     this.router.navigate(['/guest/home']);
   }
 
-
-  getUsername(): Observable<string> {
-    return of(localStorage.getItem('username'));
-  }
-
   isAuthenticated(): boolean {
     return localStorage.getItem('username') !== null;
   }
@@ -49,6 +45,7 @@ login(model: SignInModel) {
     .subscribe((res: SigninResponseModel) => {
       localStorage.setItem("username", res.username);
       localStorage.setItem("authToken", res._kmd.authtoken);
+
     });
 }
 }
