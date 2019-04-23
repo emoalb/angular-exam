@@ -51,7 +51,7 @@ export class JwtInterceptor implements HttpInterceptor {
       }
       if (res instanceof HttpResponse && request.method == 'POST' && this.router.url.endsWith('/guest/home')) {
         localStorage.clear()
-        this.toastr.warning("Logging out...", 'Success!');
+        this.toastr.warning("Logging out...", '');
       }
    if (res instanceof HttpResponse && request.method == 'POST' && this.router.url.match('/comments/.')) {
         this.toastr.success("Comment added!", 'Success!');
@@ -59,6 +59,10 @@ export class JwtInterceptor implements HttpInterceptor {
       if (res instanceof HttpResponse && request.method == 'GET' && this.router.url.match('/comments/.')) {
 
         this.toastr.success("Comments Loaded!", 'Success!');
+      }
+      if (res instanceof HttpResponse && request.method == 'GET' && this.router.url.match('/users/info')) {
+
+        this.toastr.success(res.body.username.substr(0,1).toUpperCase()+res.body.username.substr(1,res.body.username.length)+" information loaded!", 'Success!');
       }
     }));
   }

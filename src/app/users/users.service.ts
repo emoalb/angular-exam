@@ -24,4 +24,5 @@ export class UsersService {
           'Authorization': 'Kinvey ' + localStorage.getItem("authToken")
         }});
   }
+
 }

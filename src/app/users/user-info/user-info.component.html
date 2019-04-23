@@ -6,6 +6,7 @@
     <th scope="col">#</th>
     <th scope="col">User Name</th>
     <th scope="col">Created on</th>
+    <th scope="col">Email address</th>
 
   </tr>
   </thead>
@@ -14,6 +15,7 @@
     <th scope="row"><fa-icon [icon]="['fa','user']" style="margin-right: 0.5rem;" size="1x"></fa-icon></th>
     <td>{{user.username.substr(0,1)|uppercase}}{{user.username.substr(1,user.username.length)}}</td>
     <td>{{user._kmd.lmt|date}}</td>
+    <td>{{user.email}}</td>
   </tr>
   </tbody>
 </table>

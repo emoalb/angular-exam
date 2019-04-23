@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpResponse} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {SignInModel} from "./models/signin.model";
 import {SignUpModel} from "./models/signup.model";
 import {Router} from "@angular/router";

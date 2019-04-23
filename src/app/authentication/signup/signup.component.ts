@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
   repeatPassword: string ;
 
   constructor(private authService: AuthService) {
-    this.model = new SignUpModel("", "");
+    this.model = new SignUpModel("", "","");
   }
 
   ngOnInit() {
