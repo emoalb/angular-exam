@@ -23,20 +23,21 @@ export class JwtInterceptor implements HttpInterceptor {
         this.router.navigate(['/'])
       }
       if (res instanceof HttpResponse && res.body.username && this.router.url.endsWith('/signup')) {
-        this.toastr.success("Successful registration!", 'Success!');
+        this.toastr.success("Registration!", 'Success!');
         this.router.navigate(['/auth/login']);
       }
       if (res instanceof HttpResponse  && this.router.url.endsWith('/')) {
-        this.toastr.success("Successful GET from server!", 'Success!');
+        this.toastr.success("GET from server!", 'Success!');
       }
       if (res instanceof HttpResponse  && this.router.url.match('/details/.')) {
     let title =  res.body.title;
         this.toastr.success(title+" details!", 'Success!');
       }
       if (res instanceof HttpResponse && this.router.url.match('/create/new')) {
-
+        this.router.navigate(['/']);
         this.toastr.success("New post created!", 'Success!');
       }
+
     }));
   }
 

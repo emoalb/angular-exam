@@ -5,36 +5,35 @@ import {SignUpModel} from "./models/signup.model";
 import {Router} from "@angular/router";
 import {Observable, of} from "rxjs";
 import {SigninResponseModel} from "./models/signin-response.model";
+import {Data} from "../Config/config";
 
 
 
 @Injectable()
 export class AuthService {
 
-  private baseUrl: string = 'https://baas.kinvey.com/';
-  private appKey: string = 'kid_S1wP8tRfX';
-  private readonly headers;
-  private registerUrl: string = this.baseUrl + 'user/' + this.appKey + '/';
-  private loginUrl: string = this.baseUrl + 'user/' + this.appKey + '/login';
 
+  private registerUrl: string = Data.baseUrl + 'user/' + Data.appKey + '/';
+  private loginUrl: string = Data.baseUrl + 'user/' + Data.appKey + '/login';
   constructor(private http: HttpClient, private router: Router  ) {
-    this.headers = {
-      'Content-Type': 'application/json',
-      'Authorization': "Basic " + btoa('kid_S1wP8tRfX:7166d55c549a41f390b49f1066ca40da')
-    }
-  }
+      }
 
   register(body: SignUpModel) {
-    return this.http.post(this.registerUrl, body, {headers: this.headers});
+    return this.http.post(this.registerUrl, body, {headers: Data.headers_basic});
   }
 
   loginObservable(body: SignInModel):Observable<SigninResponseModel> {
-    return this.http.post<SigninResponseModel>(this.loginUrl, body, {headers: this.headers});
+    return this.http.post<SigninResponseModel>(this.loginUrl, body, {headers: Data.headers_basic});
   }
 
   logout() {
+    let authtoken =  localStorage.getItem('authToken');
+    let headers_kinvey={
+      'Authorization': 'Kinvey ' + authtoken
+    };
     localStorage.clear();
     this.router.navigate(['/guest/home']);
+    return this.http.post("/user/"+Data.appKey+"/_logout",headers_kinvey);
   }
 
   isAuthenticated(): boolean {

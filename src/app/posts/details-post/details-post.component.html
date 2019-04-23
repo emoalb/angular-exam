@@ -1,5 +1,5 @@
 
-<div class="container" *ngIf="post">
+<section id="details" style="" *ngIf="post">
   <img class="card-img-top" alt='' src="{{post.imgUrl}}"/>
   <div class="card-body">
     <h2 class="card-title">{{post.title}}</h2>
@@ -9,5 +9,5 @@
     <p class="card-text" >{{post.username}}</p>
     <button (click)="goBack()" class="btn btn-outline-info" >Back</button>
   </div>
-</div>
+</section>
 

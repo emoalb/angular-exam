@@ -33,10 +33,11 @@
            #repPassword="ngModel"
            name="repeat-password"
            minlength="4"
+
            id="repeat-password" placeholder="Repeat Password"/>
     <div *ngIf="match()" [hidden]="repPassword.pristine" class="alert alert-dark">
       Passwords should match!
     </div>
   </div>
-  <button class="btn btn-primary" [disabled]="registerForm.form.invalid">Sign up</button>
+  <button class="btn btn-primary" [disabled]="registerForm.form.invalid||match()">Sign up</button>
 </form>

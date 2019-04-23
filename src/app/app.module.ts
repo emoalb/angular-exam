@@ -23,7 +23,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faGlobe, fas} from "@fortawesome/free-solid-svg-icons";
 import {PostService} from "./posts/services/post.service";
-import { PostComponent } from './posts/post/post.component';
+import {PostComponent} from './posts/post/post.component';
 
 
 
