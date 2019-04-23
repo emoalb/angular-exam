@@ -14,31 +14,30 @@ export class PostService {
 
   }
 
-  private headers_kinvey = {
-    'Authorization': 'Kinvey ' + localStorage.getItem('authToken')
-  };
+
   getAllPosts() {
+
     return this.http.get<PostModel[]>(Data.baseUrl + 'appdata/' + Data.appKey + '/posts',
-      {headers:this.headers_kinvey});
+      {headers: {'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}});
   }
   getPostById(_id: string){
-    return this.http.get<PostModel>(Data.baseUrl + 'appdata/' + Data.appKey + '/posts/'+_id,{headers:this.headers_kinvey});
+    return this.http.get<PostModel>(Data.baseUrl + 'appdata/' + Data.appKey + '/posts/'+_id,{headers: {'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}});
   }
   createNewPost(body: PostModel) {
-    return this.http.post(Data.baseUrl + 'appdata/' + Data.appKey + '/posts/',body,{headers:this.headers_kinvey});
+    return this.http.post(Data.baseUrl + 'appdata/' + Data.appKey + '/posts/',body,{headers:{'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}});
   }
   updatePost(body:PostModel){
-    return this.http.put(Data.baseUrl + 'appdata/' + Data.appKey + '/posts/'+body._id,body,{headers:this.headers_kinvey});
+    return this.http.put(Data.baseUrl + 'appdata/' + Data.appKey + '/posts/'+body._id,body,{headers:{'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}});
   }
   deletePost(_id:string){
 
-    return this.http.delete(Data.baseUrl + 'appdata/' + Data.appKey + '/posts/'+_id,{headers:this.headers_kinvey})
+    return this.http.delete(Data.baseUrl + 'appdata/' + Data.appKey + '/posts/'+_id,{headers:{'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}})
   }
   getAllComments() {
     return this.http.get<CommentModel[]>(Data.baseUrl + 'appdata/' + Data.appKey + '/comments',
-      {headers:this.headers_kinvey});
+      {headers:{'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}});
   }
   addComment(body:CommentModel){
-    return this.http.post(Data.baseUrl + 'appdata/' + Data.appKey + '/comments/' ,body,{headers:this.headers_kinvey});
+    return this.http.post(Data.baseUrl + 'appdata/' + Data.appKey + '/comments/' ,body,{headers:{'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}});
   }
 }

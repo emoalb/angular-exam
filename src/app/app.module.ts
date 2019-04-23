@@ -25,11 +25,15 @@ import {PostComponent} from './posts/post/post.component';
 import { AllUsersComponent } from './users/all-users/all-users.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
 import { CommentsComponent } from './posts/comments/comments.component';
+import { UserInfoComponent } from './users/user-info/user-info.component';
+import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
 
 
 
 library.add(faGlobe);
+library.add(faUser);
 library.add(fas);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +48,8 @@ library.add(fas);
     PostComponent,
     AllUsersComponent,
     EditPostComponent,
-    CommentsComponent
+    CommentsComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -9,21 +9,28 @@
         <li class="nav-item" >
           <a class="nav-link"routerLink="/">Home</a>
         </li>
-        <li *ngIf="authService.isAuthenticated()" class="nav-item" >
+        <div id="logged-in" *ngIf="authService.isAuthenticated();else guest_nav">
+        <li  class="nav-item" >
           <a class="nav-link" routerLink="/create/new">Create new post</a>
         </li>
         <li *ngIf="authService.isAdmin()" class="nav-item" >
           <a class="nav-link" routerLink="/users/list">List all users</a>
         </li>
-        <li *ngIf="authService.isAuthenticated()" class="nav-item" >
+        <li  class="nav-item">
+          <a class="nav-link" routerLink="/users/info">User info</a>
+        </li>
+        <li class="nav-item" >
           <a class="nav-link"(click)="logout()">Logout</a>
         </li>
-        <li *ngIf="!authService.isAuthenticated()" class="nav-item">
+        </div >
+        <ng-template #guest_nav>
+        <li  class="nav-item">
           <a class="nav-link" routerLink="/auth/login">Login</a>
         </li>
-        <li *ngIf="!authService.isAuthenticated()" class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" routerLink="/auth/signup">Sign up</a>
         </li>
+      </ng-template>
       </ul>
     </div>
 </nav>

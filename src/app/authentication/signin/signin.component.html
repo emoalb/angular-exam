@@ -14,7 +14,7 @@
   <div class="form-group">
     <label for="password">Password:</label>
     <input type="password" required [(ngModel)]="model.password"
-           #password="ngModel" name="password" minlength="4"
+           #password="ngModel" minlength="4"
            name="password" class="form-control" id="password" placeholder="Password"/>
     <div [hidden]="password.valid || password.pristine" class="alert alert-dark">
       Password must have at least 4 characters!

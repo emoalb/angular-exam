@@ -35,6 +35,7 @@
         </div>
       </div>
       <button [disabled]="createNewForm.form.invalid||!isCapital()"  class="btn btn-outline-info">Submit</button>
+      <button (click)="goBack()" type="button" class="btn btn-outline-info" >Back</button>
     </form>
 
   </div>

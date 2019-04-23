@@ -50,7 +50,15 @@ export class JwtInterceptor implements HttpInterceptor {
         this.toastr.warning("Post edited!", 'Warning!');
       }
       if (res instanceof HttpResponse && request.method == 'POST' && this.router.url.endsWith('/guest/home')) {
-        this.toastr.warning("Logging out...", 'Warning!');
+        localStorage.clear()
+        this.toastr.warning("Logging out...", 'Success!');
+      }
+   if (res instanceof HttpResponse && request.method == 'POST' && this.router.url.match('/comments/.')) {
+        this.toastr.success("Comment added!", 'Success!');
+      }
+      if (res instanceof HttpResponse && request.method == 'GET' && this.router.url.match('/comments/.')) {
+
+        this.toastr.success("Comments Loaded!", 'Success!');
       }
     }));
   }

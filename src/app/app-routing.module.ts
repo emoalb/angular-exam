@@ -12,6 +12,7 @@ import {AllUsersComponent} from "./users/all-users/all-users.component";
 import {AdminGuard} from "./authentication/guards/admin.guard";
 import {EditPostComponent} from "./posts/edit-post/edit-post.component";
 import {CommentsComponent} from "./posts/comments/comments.component";
+import {UserInfoComponent} from "./users/user-info/user-info.component";
 const routes: Routes = [
   {path: '', component: HomeComponent ,canActivate: [AuthGuard]},
   {path:'auth/login', component: SigninComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:'create/new',component:NewPostComponent ,canActivate: [AuthGuard]},
   {path:'users/list',component:AllUsersComponent,canActivate: [AdminGuard]},
   {path:'edit/:id',component:EditPostComponent,canActivate:[AuthGuard]},
-  {path:'comments/:id',component:CommentsComponent,canActivate:[AuthGuard]}
+  {path:'comments/:id',component:CommentsComponent,canActivate:[AuthGuard]},
+  {path:'users/info',component:UserInfoComponent,canActivate:[AuthGuard]}
 ];
 @NgModule({
   declarations: [],
