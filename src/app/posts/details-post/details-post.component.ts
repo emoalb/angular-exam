@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PostService} from "../services/post.service";
 import {PostModel} from "../models/post.model";
 import { Location } from '@angular/common';
@@ -11,9 +11,10 @@ import { Location } from '@angular/common';
 })
 export class DetailsPostComponent implements OnInit {
 
+
   constructor(private route: ActivatedRoute
               , private postService: PostService
-              , private location: Location) {
+              , private location: Location,  private router: Router) {
   }
 
   post: PostModel;
@@ -28,4 +29,15 @@ export class DetailsPostComponent implements OnInit {
     this.location.back();
   }
 
+  isCreator():boolean {
+    return this.post.username===localStorage.getItem('username');
+  }
+
+  deletePost() {
+this.postService.deletePost(this.post._id).subscribe();
+  }
+
+  editPost() {
+    this.router.navigate(['edit/'+this.post._id]);
+  }
 }

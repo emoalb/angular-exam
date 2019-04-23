@@ -8,13 +8,18 @@ import {AuthGuard} from "./authentication/guards/auth.guard";
 import {GuestHomeComponent} from "./guest-home/guest-home.component";
 import {DetailsPostComponent} from "./posts/details-post/details-post.component";
 import {NewPostComponent} from "./posts/new-post/new-post.component";
+import {AllUsersComponent} from "./users/all-users/all-users.component";
+import {AdminGuard} from "./authentication/guards/admin.guard";
+import {EditPostComponent} from "./posts/edit-post/edit-post.component";
 const routes: Routes = [
   {path: '', component: HomeComponent ,canActivate: [AuthGuard]},
   {path:'auth/login', component: SigninComponent},
   {path:'auth/signup',component:SignupComponent},
   {path:'guest/home',component:GuestHomeComponent},
   {path:'details/:id',component:DetailsPostComponent,canActivate: [AuthGuard]},
-  {path:'create/new',component:NewPostComponent ,canActivate: [AuthGuard]}
+  {path:'create/new',component:NewPostComponent ,canActivate: [AuthGuard]},
+  {path:'users/list',component:AllUsersComponent,canActivate: [AdminGuard]},
+  {path:'edit/:id',component:EditPostComponent,canActivate:[AuthGuard]}
 ];
 @NgModule({
   declarations: [],

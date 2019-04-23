@@ -7,7 +7,11 @@
     <p class="card-text" >{{post.context}}</p>
     <h5 class="card-text" >Created by:</h5>
     <p class="card-text" >{{post.username}}</p>
-    <button (click)="goBack()" class="btn btn-outline-info" >Back</button>
+    <div class="container" *ngIf="isCreator()">
+      <button (click)="deletePost()" type="button" class="btn btn-outline-danger">Delete</button>
+      <button (click)="editPost()" type="button" class="btn btn-outline-warning">Edit</button>
+    </div>
+    <button (click)="goBack()" type="button" class="btn btn-outline-info" >Back</button>
   </div>
 </section>
 

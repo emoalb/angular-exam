@@ -4,6 +4,7 @@ export class SigninResponseModel
 public username: string,
  public _kmd: {
    authtoken: string
+   roles: {}
   }
   )
 {}

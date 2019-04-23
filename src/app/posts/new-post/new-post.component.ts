@@ -1,4 +1,4 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {PostModel} from "../models/post.model";
 import {PostService} from "../services/post.service";
 import {Router} from "@angular/router";
@@ -9,7 +9,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
- post: PostModel;
+ @Input() post: PostModel;
+ @Input() title_head: string='Create new post:';
+ @Input() mode: string = 'new';
   constructor(private  postService: PostService,private router:Router) {
 
     this.post = new PostModel((Math.random()).toString(),"","","",localStorage.getItem('username'))
@@ -19,8 +21,11 @@ export class NewPostComponent implements OnInit {
   }
 
   createNewPost() {
-
-this.postService.createNewPost(this.post).subscribe();
+if(this.mode=='new') {
+  this.postService.createNewPost(this.post).subscribe();
+}if(this.mode=='edit'){
+  this.postService.updatePost(this.post).subscribe();
+    }
   }
 
   isCapital(): boolean {

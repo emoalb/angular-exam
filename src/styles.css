@@ -10,6 +10,16 @@
   background-color: darkgreen;
   color: black;
 }
+#toast-container > .toast-warning {
+  width: 30%;
+  height: 10%;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 2px;
+  background-image: none;
+  background-color: orange;
+  color: black;
+}
 #toast-container > .toast-error {
   width: 20%;
   height: 10%;

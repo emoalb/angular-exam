@@ -24,6 +24,8 @@ import {library} from "@fortawesome/fontawesome-svg-core";
 import {faGlobe, fas} from "@fortawesome/free-solid-svg-icons";
 import {PostService} from "./posts/services/post.service";
 import {PostComponent} from './posts/post/post.component';
+import { AllUsersComponent } from './users/all-users/all-users.component';
+import { EditPostComponent } from './posts/edit-post/edit-post.component';
 
 
 
@@ -40,7 +42,9 @@ library.add(fas);
     GuestHomeComponent,
     DetailsPostComponent,
     NewPostComponent,
-    PostComponent
+    PostComponent,
+    AllUsersComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,

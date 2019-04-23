@@ -5,7 +5,7 @@ import {SignUpModel} from "./models/signup.model";
 import {Router} from "@angular/router";
 import {Observable, of} from "rxjs";
 import {SigninResponseModel} from "./models/signin-response.model";
-import {Data} from "../Config/config";
+import {Data} from "../config/config";
 
 
 
@@ -39,12 +39,14 @@ export class AuthService {
   isAuthenticated(): boolean {
     return localStorage.getItem('username') !== null;
   }
+  isAdmin(): boolean{
+    return localStorage.getItem('roleId') === Data.roleId;
+  }
 login(model: SignInModel) {
   this.loginObservable(model)
     .subscribe((res: SigninResponseModel) => {
       localStorage.setItem("username", res.username);
       localStorage.setItem("authToken", res._kmd.authtoken);
-
     });
 }
 }

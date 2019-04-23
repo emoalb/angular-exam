@@ -2,7 +2,7 @@
 
   <div style="width: 30%">
     <form (ngSubmit)="createNewPost()" #createNewForm="ngForm">
-      <h2>Create new post:</h2>
+      <h2>{{title_head}}</h2>
       <div class="form-group">
         <label for="imageUrl">Image url:</label>
         <input type="text"  [(ngModel)]="post.imgUrl" minlength="4" #imgUrl = "ngModel" required name="imgUrl" class="form-control" id="imageUrl"
