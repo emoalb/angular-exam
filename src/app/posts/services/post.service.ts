@@ -16,7 +16,6 @@ export class PostService {
 
 
   getAllPosts() {
-
     return this.http.get<PostModel[]>(Data.baseUrl + 'appdata/' + Data.appKey + '/posts',
       {headers: {'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}});
   }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PostModel} from "../../posts/models/post.model";
 import {UsersService} from "../users.service";
 import {UserModel} from "../models/user.model";
+import {AuthService} from "../../authentication/auth.service";
 
 @Component({
   selector: 'app-all-users',
@@ -9,15 +10,25 @@ import {UserModel} from "../models/user.model";
   styleUrls: ['./all-users.component.css']
 })
 export class AllUsersComponent implements OnInit {
-  constructor(private userService: UsersService) {
+  users: UserModel[];
+  constructor(private userService: UsersService,private authService: AuthService) {
+    this.users=[];
   }
 
-  users: UserModel[];
+
 
   ngOnInit() {
     this.userService.getAllUsers().subscribe((res: UserModel[]) => {
-      this.users = res;
+res.forEach((n: UserModel)=>{
+  if(n.username!=='admin'){
+    this.users.push(n);
+  }
+});
+
     })
   }
 
+  deleteUser(_id: string) {
+
+  }
 }

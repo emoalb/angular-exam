@@ -40,7 +40,7 @@ getAllComments(){
   this.comments=[];
   this.postService.getAllComments().subscribe((res: CommentModel[]) => {
     res.forEach(n =>{if(n.postId===this.postId){
-      this.comments.push(n)
+      this.comments.push(n);
     }})
   })
 }

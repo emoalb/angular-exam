@@ -11,7 +11,7 @@ import {Location} from "@angular/common";
 export class UserInfoComponent implements OnInit {
   user: UserModel;
   constructor(private usersService: UsersService,private location: Location) {
-   this.user  = new UserModel('','',{authtoken:"",lmt:""})
+   this.user  = new UserModel('','','',{authtoken:"",lmt:""})
   }
 
   ngOnInit() {

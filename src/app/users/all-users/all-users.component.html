@@ -1,3 +1,24 @@
-<p>
-  all-users works!
-</p>
+<section id="users-table" *ngIf="users">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Created on</th>
+      <th scope="col">Email address</th>
+
+    </tr>
+    </thead>
+    <tbody  *ngFor="let user of users">
+    <tr>
+      <th scope="row"><fa-icon [icon]="['fa','user']" style="margin-right: 0.5rem;" size="1x"></fa-icon></th>
+      <td>{{user.username}}</td>
+      <td>{{user._kmd.lmt|date}}</td>
+      <td>{{user.email}}</td>
+      <td *ngIf="authService.isAdmin()">
+        <button (click)="deleteUser(user._id)" class="btn btn-primary mb-2">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>
