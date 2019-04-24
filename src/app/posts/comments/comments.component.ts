@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {CommentModel} from "../models/comment.model";
 import {PostService} from "../services/post.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {UsersService} from "../../users/users.service";
+import {ActivatedRoute} from "@angular/router";
 import {Location} from "@angular/common";
+import {AuthService} from "../../authentication/auth.service";
 
 @Component({
   selector: 'app-comments',
@@ -15,7 +15,10 @@ export class CommentsComponent implements OnInit {
   comments: CommentModel[];
   postId: string;
 
-  constructor(private postService: PostService, private route: ActivatedRoute,private location: Location) {
+  constructor(private postService: PostService,
+              private route: ActivatedRoute,
+              private location: Location,
+              private authService: AuthService) {
     this.comment = new CommentModel('', '', '');
     this.comments = [];
   }
@@ -29,12 +32,16 @@ export class CommentsComponent implements OnInit {
   }
   addComment() {
     this.comment.postId=this.postId;
-    this.comment.userName=localStorage.getItem('username')
+    this.comment.userName=localStorage.getItem('username');
     this.comments.push(this.comment);
-    this.postService.addComment(this.comment).subscribe()
+    this.postService.addComment(this.comment).subscribe();
     this.comment= new CommentModel('', '', '');
   }
   goBack(): void {
     this.location.back();
+  }
+
+  deleteComment() {
+
   }
 }

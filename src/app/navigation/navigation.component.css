@@ -4,7 +4,3 @@ ul a:hover {
 nav{
   border-radius: 4px;
 }
-#logged-in{
-  display: flex;
-  flex-direction: row;
-}
