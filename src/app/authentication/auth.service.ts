@@ -37,11 +37,11 @@ export class AuthService {
     }).subscribe();
   }
 
-  isAuthenticated(): boolean {
+ public isAuthenticated(): boolean {
     return localStorage.getItem('username') !== null;
   }
 
-  isAdmin(): boolean {
+ public isAdmin(): boolean {
     return localStorage.getItem('roleId') === Data.roleId;
   }
 

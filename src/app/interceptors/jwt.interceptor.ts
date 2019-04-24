@@ -50,7 +50,7 @@ export class JwtInterceptor implements HttpInterceptor {
         this.toastr.warning("Post edited!", 'Warning!');
       }
       if (res instanceof HttpResponse && request.method == 'POST' && this.router.url.endsWith('/guest/home')) {
-        localStorage.clear()
+        localStorage.clear();
         this.toastr.warning("Logging out...", '');
       }
    if (res instanceof HttpResponse && request.method == 'POST' && this.router.url.match('/comments/.')) {
@@ -64,6 +64,15 @@ export class JwtInterceptor implements HttpInterceptor {
 
         this.toastr.success(res.body.username.substr(0,1).toUpperCase()+res.body.username.substr(1,res.body.username.length)+" information loaded!", 'Success!');
       }
+      if (res instanceof HttpResponse && request.method == 'GET' && this.router.url.match('/users/list')) {
+
+        this.toastr.success("User List Loaded!", 'Success!');
+      }
+      if (res instanceof HttpResponse && request.method == 'DELETE' && this.router.url.match('/users/list')) {
+
+        this.toastr.warning("User deleted!", 'Warning!');
+      }
+
     }));
   }
 

@@ -30,6 +30,7 @@ import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
 
 
 
+
 library.add(faGlobe);
 library.add(faUser);
 library.add(fas);
