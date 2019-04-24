@@ -23,7 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css","node_modules/bootswatch/dist/cyborg/bootstrap.css"
+              "src/styles.css","node_modules/bootswatch/dist/cyborg/bootstrap.css","node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": ["node_modules/jquery/dist/jquery.js","node_modules/bootstrap/dist/js/bootstrap.js"]
           },
