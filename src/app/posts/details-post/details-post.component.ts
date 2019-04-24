@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {PostService} from "../services/post.service";
 import {PostModel} from "../models/post.model";
 import { Location } from '@angular/common';
+import {AuthService} from "../../authentication/auth.service";
 
 @Component({
   selector: 'app-details-post',
@@ -14,7 +15,7 @@ export class DetailsPostComponent implements OnInit {
 
   constructor(private route: ActivatedRoute
               , private postService: PostService
-              , private location: Location,  private router: Router) {
+              , private location: Location,  private router: Router, private authService:AuthService) {
   }
 
   post: PostModel;
