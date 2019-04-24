@@ -1,5 +1,5 @@
 #Angular 2 exam project
->Simple application for creating a user created post.
+>Simple application for creating a user post.
 >The project is based on Angular 7 framework.
 >CRUD application  using Kinvey for back end.
 >The project is using bootstrap 4.
