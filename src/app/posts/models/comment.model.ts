@@ -1,6 +1,5 @@
 export class CommentModel {
-  constructor(public postId:string, public userName:string, public comment:string){
-
+  constructor(public _id:string,public postId:string, public userName:string, public comment:string){
   }
 
 }

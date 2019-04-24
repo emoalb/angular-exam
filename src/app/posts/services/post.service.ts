@@ -40,4 +40,7 @@ export class PostService {
   addComment(body:CommentModel){
     return this.http.post(Data.baseUrl + 'appdata/' + Data.appKey + '/comments/' ,body,{headers:{'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}});
   }
+  deleteComment(_id:string){
+    return this.http.delete(Data.baseUrl + 'appdata/' + Data.appKey + '/comments/'+_id,{headers:{'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}})
+  }
 }

@@ -19,29 +19,32 @@ export class CommentsComponent implements OnInit {
               private route: ActivatedRoute,
               private location: Location,
               private authService: AuthService) {
-    this.comment = new CommentModel('', '', '');
+    this.comment = new CommentModel(Math.random().toString(),'', '', '');
     this.comments = [];
   }
   ngOnInit() {
     this.postId = this.route.snapshot.paramMap.get('id');
-    this.postService.getAllComments().subscribe((res: CommentModel[]) => {
-      res.forEach(n =>{if(n.postId===this.postId){
-        this.comments.push(n)
-      }})
-    })
+    this.getAllComments()
   }
   addComment() {
     this.comment.postId=this.postId;
     this.comment.userName=localStorage.getItem('username');
     this.comments.push(this.comment);
     this.postService.addComment(this.comment).subscribe();
-    this.comment= new CommentModel('', '', '');
+    this.comment= new CommentModel(Math.random().toString(),'', '', '');
   }
   goBack(): void {
     this.location.back();
   }
-
-  deleteComment() {
-
+getAllComments(){
+  this.comments=[];
+  this.postService.getAllComments().subscribe((res: CommentModel[]) => {
+    res.forEach(n =>{if(n.postId===this.postId){
+      this.comments.push(n)
+    }})
+  })
+}
+  deleteComment(_id:string) {
+    this.postService.deleteComment(_id).subscribe(res=>this.getAllComments());
   }
 }

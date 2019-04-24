@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'users/list',component:AllUsersComponent,canActivate: [AdminGuard]},
   {path:'edit/:id',component:EditPostComponent,canActivate:[AuthGuard]},
   {path:'comments/:id',component:CommentsComponent,canActivate:[AuthGuard]},
-  {path:'users/info',component:UserInfoComponent,canActivate:[AuthGuard]}
+  {path:'users/info',component:UserInfoComponent,canActivate:[AuthGuard]},
 ];
 @NgModule({
   declarations: [],
