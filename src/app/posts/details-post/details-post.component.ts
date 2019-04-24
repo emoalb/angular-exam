@@ -14,8 +14,9 @@ export class DetailsPostComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute
-    , private postService: PostService
-    , private location: Location, private router: Router, private authService: AuthService) {
+            , private postService: PostService
+            , private location: Location, private router: Router
+            , private authService: AuthService) {
   }
 
   post: PostModel;
