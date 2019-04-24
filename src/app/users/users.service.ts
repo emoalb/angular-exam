@@ -24,5 +24,8 @@ export class UsersService {
           'Authorization': 'Kinvey ' + localStorage.getItem("authToken")
         }});
   }
+  deleteUser(_id:string){
+    return this.http.delete(Data.baseUrl + 'user/' + Data.appKey + '/'+_id+'?soft=true',{headers:{'Authorization': 'Kinvey ' + localStorage.getItem('authToken')}})
+  }
 
 }
