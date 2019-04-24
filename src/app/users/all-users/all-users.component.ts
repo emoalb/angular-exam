@@ -24,7 +24,7 @@ export class AllUsersComponent implements OnInit {
     this.users = [];
     this.userService.getAllUsers().subscribe((res: UserModel[]) => {
       res.forEach((n: UserModel) => {
-        if (n.username !== 'admin') {
+        if (n._kmd.roles === undefined) {
           this.users.push(n);
         }
       });

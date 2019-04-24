@@ -6,6 +6,7 @@ export class UserModel {
     public _kmd: {
       authtoken: string
       lmt: string,
+      roles:{}
     }
   ) { }
 }
