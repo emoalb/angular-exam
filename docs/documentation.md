@@ -12,11 +12,15 @@
 >If the user is the post creator he can edit or delete it.
 >The user can also see comments for every post and the creator of the comment.
 >User can see his information - user name, email, and creation date.
+>User can logout.
+####Administrator:
+>Admin user can delete or edit all posts and delete comments.
 #####Data validation:
 #####Users:
 >User name should be at least one character.
 >Email should be a valid email.
 >Password should be at least 4 characters long
+>Only passwords are case sensitive
 #####Posts:
 >If invalid url is provided the post picture will be default picture stating that invalid url is posted.
 >Post title should start with capital letter and should be at least 3 characters long.
