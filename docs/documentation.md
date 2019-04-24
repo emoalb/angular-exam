@@ -23,6 +23,7 @@
 ##### Administrator:
 
 >Admin user can delete or edit all posts and delete comments.
+>Admin user can see a list of all users and delete other users.
 
 ##### Data validation:
 
