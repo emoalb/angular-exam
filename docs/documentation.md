@@ -20,7 +20,7 @@
 >User can see his information - user name, email, and creation date.
 >User can logout.
 
-#### Administrator:
+##### Administrator:
 
 >Admin user can delete or edit all posts and delete comments.
 
