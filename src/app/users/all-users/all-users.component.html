@@ -15,7 +15,7 @@
       <td>{{user.username}}</td>
       <td>{{user._kmd.lmt|date}}</td>
       <td>{{user.email}}</td>
-      <td *ngIf="authService.isAdmin()">
+      <td *ngIf="AuthService.isAdmin()">
         <button (click)="deleteUser(user._id)" class="btn btn-primary mb-2">Delete</button>
       </td>
     </tr>

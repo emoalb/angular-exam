@@ -30,19 +30,23 @@ export class AuthService {
   }
 
   logout() {
-    this.router.navigate(['/guest/home']);
-    return this.http.post(Data.baseUrl + "user/" + Data.appKey + "/_logout", {}, {
-      headers: {
-        'Authorization': 'Kinvey ' + localStorage.getItem('authToken')
-      }
-    }).subscribe();
+   return this.router.navigate(['/guest/home']).then(()=>{
+     this.http.post(Data.baseUrl + "user/" + Data.appKey + "/_logout", {}, {
+       headers: {
+         'Authorization': 'Kinvey ' + localStorage.getItem('authToken')
+       }
+     }).subscribe();
+    }).catch(()=>{
+
+   });
+
   }
 
-public isAuthenticated(): boolean {
+public static isAuthenticated(): boolean {
     return localStorage.getItem('username') !== null;
   }
 
- public isAdmin(): boolean {
+ public static isAdmin(): boolean {
     return localStorage.getItem('roleId') === Data.roleId;
   }
 
