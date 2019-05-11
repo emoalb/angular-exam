@@ -37,7 +37,7 @@ export class AuthService {
     }).subscribe();
   }
 
- public isAuthenticated(): boolean {
+public isAuthenticated(): boolean {
     return localStorage.getItem('username') !== null;
   }
 

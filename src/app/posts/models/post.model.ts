@@ -5,6 +5,5 @@ export class PostModel {
     public  title: string,
     public  context: string,
     public  username: string,
-
   ){}
 }

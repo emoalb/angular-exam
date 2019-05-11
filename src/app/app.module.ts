@@ -3,30 +3,21 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { SigninComponent } from './authentication/signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { SignupComponent } from './authentication/signup/signup.component';
 import {FormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {AuthService} from "./authentication/auth.service";
 import {JwtInterceptor} from "./interceptors/jwt.interceptor";
 import {ErrorInterceptor} from "./interceptors/error.interceptor";
-import { PostsComponent } from './posts/posts/posts.component';
 import { GuestHomeComponent } from './guest-home/guest-home.component';
-import { DetailsPostComponent } from './posts/details-post/details-post.component';
-import { NewPostComponent } from './posts/new-post/new-post.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {faGlobe, fas} from "@fortawesome/free-solid-svg-icons";
-import {PostService} from "./posts/services/post.service";
-import {PostComponent} from './posts/post/post.component';
 import { AllUsersComponent } from './users/all-users/all-users.component';
-import { EditPostComponent } from './posts/edit-post/edit-post.component';
-import { CommentsComponent } from './posts/comments/comments.component';
 import { UserInfoComponent } from './users/user-info/user-info.component';
 import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
+import {AuthenticationModule} from "./authentication/authentication.module";
+import {PostsModule} from "./posts/posts.module";
 
 
 
@@ -39,23 +30,16 @@ library.add(fas);
   declarations: [
     AppComponent,
     NavigationComponent,
-    HomeComponent,
-    SigninComponent,
-    SignupComponent,
-    PostsComponent,
+    UserInfoComponent,
     GuestHomeComponent,
-    DetailsPostComponent,
-    NewPostComponent,
-    PostComponent,
     AllUsersComponent,
-    EditPostComponent,
-    CommentsComponent,
-    UserInfoComponent
+
   ],
   imports: [
     BrowserModule,
+    PostsModule,
+    AuthenticationModule,
     HttpClientModule,
-    FormsModule,
     FontAwesomeModule,
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
@@ -63,8 +47,6 @@ library.add(fas);
 
   ],
   providers: [
-    AuthService,
-    PostService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
