@@ -16,6 +16,7 @@ export class AuthService {
   private loginUrl: string = Data.baseUrl + 'user/' + Data.appKey + '/login';
 
   constructor(private http: HttpClient, private router: Router) {
+
   }
 
   register(body: SignUpModel) {
