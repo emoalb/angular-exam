@@ -7,7 +7,7 @@
     <p class="card-text" >{{post.context}}</p>
     <h5 class="card-text" >Created by:</h5>
     <p class="card-text" >{{post.username}}</p>
-    <div class="container" *ngIf="isCreator()||AuthService.isAdmin()">
+    <div class="container" *ngIf="isCreator()||authService.isAdmin()">
       <button (click)="deletePost()" type="button" class="btn btn-outline-danger">Delete</button>
       <button (click)="editPost()" type="button" class="btn btn-outline-warning">Edit</button>
     </div>

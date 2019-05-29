@@ -11,7 +11,6 @@ import {Data} from "../config/config";
 @Injectable()
 export class AuthService {
 
-
   private registerUrl: string = Data.baseUrl + 'user/' + Data.appKey + '/';
   private loginUrl: string = Data.baseUrl + 'user/' + Data.appKey + '/login';
 
@@ -42,11 +41,10 @@ export class AuthService {
 
   }
 
-public static isAuthenticated(): boolean {
+public isAuthenticated(): boolean {
     return localStorage.getItem('username') !== null;
   }
-
- public static isAdmin(): boolean {
+  public isAdmin(): boolean {
     return localStorage.getItem('roleId') === Data.roleId;
   }
 

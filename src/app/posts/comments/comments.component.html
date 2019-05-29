@@ -10,7 +10,7 @@
   <tr>
     <td>{{com.userName}}</td>
     <td>{{com.comment}}</td>
-    <td *ngIf="AuthService.isAdmin()">
+    <td *ngIf="authService.isAdmin()">
     <button (click)="deleteComment(com._id)" class="btn btn-primary mb-2">Delete</button>
     </td>
   </tr>

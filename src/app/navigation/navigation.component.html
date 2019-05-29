@@ -1,17 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="nav-link" style="color: lightgray">Welcome <div *ngIf="AuthService.isAuthenticated()">{{getUsername().substr(0,1)|uppercase}}{{getUsername().substr(1,getUsername().length)}}!</div> </a>
+  <a class="nav-link" style="color: lightgray">Welcome <div *ngIf="authService.isAuthenticated()">{{getUsername().substr(0,1)|uppercase}}{{getUsername().substr(1,getUsername().length)}}!</div> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-      <ul class="navbar-nav mr-auto" *ngIf="AuthService.isAuthenticated();else guest_nav">
+      <ul class="navbar-nav mr-auto" *ngIf="authService.isAuthenticated();else guest_nav">
         <li class="nav-item" >
           <a class="nav-link" routerLink="/">Home</a>
         </li>
         <li  class="nav-item" >
           <a class="nav-link" routerLink="/create/new">Create new post</a>
         </li>
-        <li *ngIf="AuthService.isAdmin()" class="nav-item" >
+        <li *ngIf="authService.isAdmin()" class="nav-item" >
           <a class="nav-link" routerLink="/users/list">List all users</a>
         </li>
         <li  class="nav-item">
